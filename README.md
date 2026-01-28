@@ -1,0 +1,1 @@
+# pinigu-konvertavimas

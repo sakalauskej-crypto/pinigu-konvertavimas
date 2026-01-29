@@ -1,7 +1,7 @@
 body {
   background-color: rgba(1, 0, 0, 1);
-color: white;
-font-family: "Inter";
+  color: white;
+  font-family: "Inter";
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -20,7 +20,8 @@ font-family: "Inter";
 }
 
 img {
-  width: 1000px;
+  max-width: 1000px;
+  width: 100%;
   height: auto;
 }
 
@@ -120,3 +121,43 @@ button:disabled {
   background-color: rgba(248, 145, 139, 1);
   color: black;
 }
+
+@media (max-width: 768px) {
+    /* 1. Kortelė: iš horizontalios (eilutės) į vertikalią (stulpelį) */
+    .card {
+      flex-direction: column;
+      width: 95%; /* Kortelė užims beveik visą plotą */
+      align-items: center;
+    }
+  
+    /* 2. Nuotrauka: panaikiname 1000px limitą */
+    img {
+      width: 100% !important; /* Nuotrauka prisitaiko prie ekrano */
+      max-width: 300px;       /* Bet neleidžiame jai būti per didelei telefone */
+      height: auto;
+    }
+  
+    /* 3. Antraštė: sumažiname aukštį, kad neužimtų pusės ekrano */
+    .page-name {
+      height: auto;
+      padding-bottom: 20px;
+    }
+  
+    /* 4. Įvesties laukai: padarome juos pilno pločio */
+    .row {
+      display: flex;
+      flex-direction: column; /* Suma ir Valiuta vienas po kitu */
+      gap: 10px;
+    }
+  
+    input, #fromCurrency, #toCurrency {
+      width: 100% !important; /* Visi elementai užpildo plotį */
+      margin-left: 0;         /* Panaikiname margin-left: 20px; nuo EUR pasirinkimo */
+    }
+  
+    /* 5. Mygtukai: dedame vieną po kitu */
+    .button-group {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
